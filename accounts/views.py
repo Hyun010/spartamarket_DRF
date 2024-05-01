@@ -1,18 +1,10 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
-from .serializers import RegisterSerializer,loginSerializer,profileSerializer
+from .serializers import RegisterSerializer,profileSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .models import User
-from rest_framework.renderers import JSONRenderer
-from rest_framework.exceptions import AuthenticationFailed
-import jwt,datetime
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
 from django.contrib.auth.hashers import check_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .permissions import CustomReadOnly
