@@ -13,6 +13,8 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from django.contrib.auth.hashers import check_password
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 @api_view(["POST"])
 def signup(request):
@@ -21,29 +23,36 @@ def signup(request):
         serializer.save()
         return Response(serializer.data,status=status.HTTP_201_CREATED)
     
-@api_view(["POST"])
-def login(request):
-    username=request.data['username']
-    password=request.data['password']
-    user=User.objects.filter(username=username).first()
-    serialize_user=loginSerializer(user)
-    json_user=JSONRenderer().render(serialize_user.data)
-    if user is None :
-        raise AuthenticationFailed('User does not found!')
-    if not user.check_password(password) :
-        raise AuthenticationFailed("Incorrect password!")
-    payload = {
-        'id' : user.id,
-        'exp' : datetime.datetime.now() + datetime.timedelta(minutes=60),
-        'iat' : datetime.datetime.now()
-    }
-    token = jwt.encode(payload,"secretJWTkey",algorithm="HS256")
-    res = Response()
-    res.set_cookie(key='jwt', value=token, httponly=True)
-    res.data = {
-        'jwt' : token
-    }
-    return res
+class LoginAPI(APIView):
+    def post(self,request):
+        usernaem=request.data['username']
+        password=request.data['password']
+
+        user=User.objects.filter(username=usernaem).first()
+        if user is None:
+            return Response({"message":"존재하지 않는 아이디입니다."},status=status.HTTP_400_BAD_REQUEST)
+        if not check_password(password,user.password):
+            return Response({"message":"비밀번호 틀립니다."},status=status.HTTP_400_BAD_REQUEST)
+        if user is not None:
+            token=TokenObtainPairSerializer.get_token(user)
+            refresh_token=str(token)
+            access_token=str(token.access_token)
+            response=Response(
+                {
+                    'user' : profileSerializer(user).data,
+                    "jwt_token" : {
+                        "access_token" : access_token,
+                        "refresh_token" : refresh_token
+                    },
+                },
+            status=status.HTTP_200_OK
+            )
+            response.set_cookie("access_token", access_token, httponly=True)
+            response.set_cookie("refresh_token", refresh_token, httponly=True)
+            return response
+        else:
+            return Response({"message":"로그인 실패입니다."},status=status.HTTP_400_BAD_REQUEST)
+
 
 class ProfileAPIView(APIView):
     permission_classes=[IsAuthenticated]
