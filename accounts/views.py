@@ -15,6 +15,7 @@ from rest_framework_simplejwt.views import (
 )
 from django.contrib.auth.hashers import check_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from .permissions import CustomReadOnly
 
 @api_view(["POST"])
 def signup(request):
@@ -55,9 +56,12 @@ class LoginAPI(APIView):
 
 
 class ProfileAPIView(APIView):
-    permission_classes=[IsAuthenticated]
+    permission_classes=[CustomReadOnly]
 
     def get(self, request,username):
         user = get_object_or_404(User, username=username)
-        serializer = profileSerializer(user)
-        return Response(serializer.data)
+        if request.user==user:
+            serializer = profileSerializer(user)
+            return Response(serializer.data)
+        else:
+            return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
