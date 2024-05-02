@@ -4,9 +4,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Product
 from .serializers import ProductSerializer
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes, authentication_classes
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -29,3 +28,34 @@ class ProductListAPIView(APIView):
         result = paginator.paginate_queryset(products, request)
         serializer = ProductSerializer(result, many=True)
         return paginator.get_paginated_response(serializer.data)
+
+class ProductDetailAPIView(APIView):
+    def get_object(self, productId):
+        return get_object_or_404(Product, pk=productId)
+
+    def put(self, request,productId):
+        product=self.get_object(productId)
+        if request.user==product.user:
+            serializer = ProductSerializer(product,data=request.data, partial=True)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
+    def delete(self, request,productId):
+        pass
+
+
+
+
+
+
+
+
+
+
+#  if request.user==user:
+#             serializer = profileSerializer(user)
+#             return Response(serializer.data)
+#         else:
+#             return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
