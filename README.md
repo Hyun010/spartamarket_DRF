@@ -108,6 +108,9 @@
 <br>
 <img src="./ref/상품삭제_본인.PNG" width=300 height=600>
 <figcaption>본인 접근한 경우</figcaption>
+<br>
+<img src="./ref/상품삭제_비밀번호.PNG" width=300 height=600>
+<figcaption>비밀번호 틀린 경우</figcaption>
 </div>
 
 ## API
