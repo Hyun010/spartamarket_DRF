@@ -46,7 +46,6 @@ class LoginAPI(APIView):
         else:
             return Response({"message":"로그인 실패입니다."},status=status.HTTP_400_BAD_REQUEST)
 
-
 class ProfileAPIView(APIView):
     permission_classes=[CustomReadOnly]
 

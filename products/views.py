@@ -42,6 +42,7 @@ class ProductDetailAPIView(APIView):
             return Response(serializer.data)
         else:
             return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
+        
     def delete(self, request,productId):
         product=self.get_object(productId)
         if request.user==product.user:
@@ -49,18 +50,3 @@ class ProductDetailAPIView(APIView):
             return Response({"message":"삭제되었습니다."},status=status.HTTP_200_OK)
         else:
             return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
-
-
-
-
-
-
-
-
-
-
-#  if request.user==user:
-#             serializer = profileSerializer(user)
-#             return Response(serializer.data)
-#         else:
-#             return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
