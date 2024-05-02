@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
-from .serializers import RegisterSerializer,profileSerializer
+from .serializers import RegisterSerializer,profileSerializer,byeSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .models import User
@@ -60,7 +60,11 @@ class ProfileAPIView(APIView):
     def delete(self, request,username):
         user = get_object_or_404(User, username=username)
         if request.user==user:
-            user.delete()
-            return Response({"message":"성공적으로 삭제되었습니다."},status=status.HTTP_200_OK)
+            serializer=byeSerializer(request.data)
+            if check_password(serializer.data['password'],user.password):
+                user.delete()
+                return Response({"message":"성공적으로 삭제되었습니다."},status=status.HTTP_200_OK)
+            else:
+                return Response({"message":"비밀번호가 일치하지 않습니다."},status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)

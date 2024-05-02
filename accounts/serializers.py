@@ -24,3 +24,8 @@ class profileSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
         fields=["username","last_login","email","name","nickname","birth","sex","intro"]
+
+class byeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields=["password"]
