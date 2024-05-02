@@ -29,64 +29,79 @@
 ## 구현 기능
 ### ACCOUNT
 - 회원가입
-<br><br>
+<div style="text-align:center;">
+<figure>
 <img src="./ref/회원가입_username_email.PNG" width=300 height=600>
+<figcaption>username, email이 이미 존재한 경우</figcaption>
+<br>
 <img src="./ref/회원가입_OK.PNG" width=300 height=600>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username, email이 이미 존재한 경우&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 성공한 경우
-<br><br>
+<figcaption>성공한 경우</figcaption>
+</figure>
+</div>
+
 - 로그인
-<br><br>
+<div style="text-align:center;">
+<figure>
 <img src="./ref/로그인_username.PNG" width=300 height=600>
+<figcaption>usernaem 없는 경우</figcaption>
+<br>
 <img src="./ref/로그인_비밀번호.PNG" width=300 height=600>
+<figcaption>비밀번호 없는 경우</figcaption>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usernaem 없는 경우&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 비밀번호 없는 경우
-<br><br>
 <img src="./ref/로그인_OK.PNG" width=300 height=600>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;성공한 경우
-<br><br>
+<figcaption>성공한 경우</figcaption>
+</figure>
+</div>
+
 - 프로필 조회
-<br><br>
+<div style="text-align:center;">
+<figure>
 <img src="./ref/프로필조회_다른사람.PNG" width=300 height=600>
+<figcaption>다른 사람이 접근한 경우</figcaption>
+<br>
 <img src="./ref/프로필조회_본인.PNG" width=300 height=600>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;다른 사람이 접근한 경우&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;본인이 접근한 경우
-<br>
+<figcaption>본인이 접근한 경우</figcaption>
+</figure>
+</div>
 
 ### PRODUCT
 - 상품등록
-<br><br>
+<div style="text-align:center;">
+<figure>
 <img src="./ref/상품등록_OK.PNG" width=300 height=600>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;다른 사람이 접근한 경우
-<br><br>
+<figcaption>로그인한 사람 상품등록 완료</figcaption>
+</div>
+
 - 상품조회
-<br><br>
+<div style="text-align:center;">
+<figure>
 <img src="./ref/상품조회_OK_PAGINATION.PNG" width=300 height=600>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;물품 5개씩 페이지네이션
-<br><br>
+<figcaption>물품 5개씩 페이지네이션</figcaption>
+</div>
+
 - 상품수정
-<br><br>
+<div style="text-align:center;">
+<figure>
 <img src="./ref/상품수정_다른사람.PNG" width=300 height=600>
+<figcaption>다른사람 접근한 경우</figcaption>
+<br>
 <img src="./ref/상품수정_본인_OK.PNG" width=300 height=600>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;다른사람 접근한 경우&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;본인 접근한 경우
-<br><br>
+<figcaption>본인 접근한 경우</figcaption>
+</div>
+
 - 상품삭제
-<br><br>
+<div style="text-align:center;">
+<figure>
 <img src="./ref/상품삭제_다른사람.PNG" width=300 height=600>
+<figcaption>다른사람 접근한 경우</figcaption>
+<br>
 <img src="./ref/상품삭제_본인.PNG" width=300 height=600>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;다른사람 접근한 경우&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;본인 접근한 경우
-
-
-<br>
+<figcaption>본인 접근한 경우</figcaption>
+</div>
 
 ## API
-<img src="./ref/accountsAPI.png" width=900 height=250>
-<img src="./ref/productsAPI.png" width=900 height=250>
+<img src="./ref/accountsAPI.PNG" width=900 height=250>
+<img src="./ref/productsAPI.PNG" width=900 height=250>
 <br>
 
 ## PIP LIST
