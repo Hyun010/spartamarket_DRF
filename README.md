@@ -64,6 +64,17 @@
 </figure>
 </div>
 
+- 회원탈퇴
+<div style="text-align:center;">
+<figure>
+<img src="./ref/회원탈퇴_다른사람.PNG" width=300 height=600>
+<figcaption>다른 사람이 접근한 경우</figcaption>
+<br>
+<img src="./ref/회원탈퇴_본인.PNG" width=300 height=600>
+<figcaption>본인이 접근한 경우</figcaption>
+</figure>
+</div>
+
 ### PRODUCT
 - 상품등록
 <div style="text-align:center;">
