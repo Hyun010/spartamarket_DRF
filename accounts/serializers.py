@@ -14,6 +14,16 @@ class RegisterSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+        ret.pop("password")
+        ret.pop("is_superuser")
+        ret.pop("is_staff")
+        ret.pop("is_active")
+        ret.pop("groups")
+        ret.pop("user_permissions")
+        return ret
 
 class loginSerializer(serializers.ModelSerializer):
     class Meta:
