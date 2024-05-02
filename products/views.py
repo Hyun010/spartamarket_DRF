@@ -43,7 +43,12 @@ class ProductDetailAPIView(APIView):
         else:
             return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
     def delete(self, request,productId):
-        pass
+        product=self.get_object(productId)
+        if request.user==product.user:
+            product.delete()
+            return Response({"message":"삭제되었습니다."},status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
 
 
 
