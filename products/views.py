@@ -33,6 +33,8 @@ class ProductDetailAPIView(APIView):
     def get_object(self, productId):
         return get_object_or_404(Product, pk=productId)
 
+    @permission_classes(IsAuthenticated)
+    @authentication_classes([JWTAuthentication])
     def put(self, request,productId):
         product=self.get_object(productId)
         if request.user==product.user:
@@ -43,6 +45,8 @@ class ProductDetailAPIView(APIView):
         else:
             return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
         
+    @permission_classes(IsAuthenticated)
+    @authentication_classes([JWTAuthentication])
     def delete(self, request,productId):
         product=self.get_object(productId)
         if request.user==product.user:

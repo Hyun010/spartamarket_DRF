@@ -56,3 +56,11 @@ class ProfileAPIView(APIView):
             return Response(serializer.data)
         else:
             return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
+        
+    def delete(self, request,username):
+        user = get_object_or_404(User, username=username)
+        if request.user==user:
+            user.delete()
+            return Response({"message":"성공적으로 삭제되었습니다."},status=status.HTTP_200_OK)
+        else:
+            return Response({"message":"잘못된 접근입니다."},status=status.HTTP_400_BAD_REQUEST)
